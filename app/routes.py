@@ -76,8 +76,6 @@ def delete_product(pid):
     out = update(int(pid), {"active": 0})
     return {"ok": out, "message": "Updated"}
     
-    return render_template("delete.html", product=out["body"][0])
-    
 
 
 
