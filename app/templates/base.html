@@ -1,0 +1,28 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}Products{% endblock %}
+
+
+{% block navbar %}
+<nav class="navbar navbar-dark bg-dark">
+    <!-- Navbar content -->
+    <a class="navbar-brand" style="color:lightskyblue" href="#"><b>Duckommerce</b></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" style="color:lightskyblue" href={{ url_for("product_form") }}>Create <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" style="color:lightskyblue" href={{ url_for("get_all_products") }}>Scan <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+    </form>
+  </div>
+  </nav>
+  
+
+
+{% endblock %}

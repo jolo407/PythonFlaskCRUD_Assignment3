@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+   
+   
+    <table class="table">
+        <thead>
+        <tr>
+           <th scope="col">id</th>
+           <th scope="col">Name</th>
+           <th scope="col">Price</th>
+           <th scope="col">Description</th>
+           <th scope="col">Category</th>
+           <th scope="col">Quantity</th>
+           <th scope="col">Unique_Tag</th>
+
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for product in products %}
+            {% if product["active"] == 1 %}
+            {% if product["quantity"] < 100 %}
+             
+            <tr>
+                <td>{{ product["id"] }}</td>
+                <td>{{ product["name"] }}</td>
+                <td>{{ product["price"] }}</td>
+                <td>{{ product["description"] }}</td>
+                <td>{{ product["category"] }}</td>
+                <td class="table-danger">{{ product["quantity"] }}</td>
+                <td>{{ product["unique_tag"] }}</td>
+                 <td class="text-right"><a class="btn btn-success btn-sm" href={{ url_for("update_product", pid=product["id"]) }} role="button">Update</a></td>
+                <td class="text-right"><a class="btn btn-danger btn-sm" href={{ url_for("delete_product", pid=product["id"]) }} role="button">Delete</a></td>
+               
+            </tr> 
+            {% elif product["quantity"] < 500 %}
+            <tr>
+                <td>{{ product["id"] }}</td>
+                <td>{{ product["name"] }}</td>
+                <td>{{ product["price"] }}</td>
+                <td>{{ product["description"] }}</td>
+                <td>{{ product["category"] }}</td>
+                <td class="table-warning">{{ product["quantity"] }}</td>
+                <td>{{ product["unique_tag"] }}</td>
+                <td class="text-right"><a class="btn btn-success btn-sm" href={{ url_for("update_product", pid=product["id"]) }} role="button">Update</a></td>
+                <td class="text-right"><a class="btn btn-danger btn-sm" href={{ url_for("delete_product", pid=product["id"]) }} role="button">Delete</a></td>
+                
+            </tr> 
+            {% elif product["quantity"] > 500 %}
+            <tr>
+                <td>{{ product["id"] }}</td>
+                <td>{{ product["name"] }}</td>
+                <td>{{ product["price"] }}</td>
+                <td>{{ product["description"] }}</td>
+                <td>{{ product["category"] }}</td>
+                <td class="table-success">{{ product["quantity"] }}</td>
+                <td>{{ product["unique_tag"] }}</td>
+                <td class="text-right"><a class="btn btn-success btn-sm" href={{ url_for("update_product", pid=product["id"]) }} role="button">Update</a></td>
+                <td class="text-right"><a class="btn btn-danger btn-sm" href={{ url_for("delete_product", pid=product["id"]) }} role="button">Delete</a></td>
+                
+            </tr> 
+
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+            {% endblock %}
+        </tbody>
+</table>
+

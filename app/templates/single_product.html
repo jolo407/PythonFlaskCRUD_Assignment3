@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+
+<div class="container">
+    <div class="page-header">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Quantity</th>
+                <th>Unique_Tag</th>
+            </tr>
+            </thead>
+
+            <tbody>
+        <tr>
+            <td>{{ product["name"] }}</td>
+            <td>{{ product["price"] }}</td>
+            <td>{{ product["description"] }}</td>
+            <td>{{ product["category"] }}</td>
+            <td>{{ product["quantity"] }}</td>
+            <td>{{ product["unique_tag"] }}</td>
+        </tr>
+        </tbody>
+        </table>
+    </div>
+    <div class="col-sm-6">
+        <form method="PUT">
+            {{ wtf.quick_form(form) }}
+        </form>
+    </div>
+</div>
+{% endblock %}
+
