@@ -78,4 +78,4 @@ def delete(prod_id):
     cursor = get_db()
     cursor.execute(query, ())
     cursor.commit()
-    return False 
+    return False

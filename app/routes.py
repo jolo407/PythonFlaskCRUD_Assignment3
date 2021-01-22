@@ -13,8 +13,9 @@ def index():
         "ok": True,
         "version": "1.0.0",
         "server_time": serv_time
+    
     }
-
+    
 @app.route("/product_form", methods=["GET", "POST"])
 def product_form():
     if request.method == "POST":
@@ -26,7 +27,7 @@ def product_form():
         unique_tag = request.form.get("unique_tag")
         create(name, price, description, category, quantity, unique_tag)
     form = ProductForm()
-    return render_template("form_example.html", form=form) 
+    return render_template("form_example.html", form=form)
 
 
 @app.route("/products")
@@ -57,6 +58,7 @@ def create_products():
     )
 
     return {"ok": True, "message": "Success", "new_id": new_id}
+    
 
 @app.route("/products/<pid>", methods=["GET", "PUT"])
 def update_product(pid):
@@ -71,14 +73,22 @@ def update_product(pid):
     else:
         return render_template("404.html"), 404
 
-@app.route("/products/delete/<pid>", methods=["GET"])
+@app.route("/products/delete/<pid>", methods=["GET", "DELETE"])
 def delete_product(pid):
-    out = update(int(pid), {"active": 0})
-    return {"ok": out, "message": "Updated"}
+        out = update(int(pid), {"active": 0})
+        #return {"ok": out, "message": "Updated"}
+        return render_template("delete.html")
+
+@app.route("/products/delete/<pid>", methods=["GET", "POST"])
+def reactivate_products():
+    if request.method == "POST":
+        update(pid, request.form)
+        return {"ok": "True", "message": "Updated"}
+        out = read(int(pid))
+        if out["body"]:
+            return render_template("delete.html", product=out["body"][0])
+
     
-
-
-
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template("404.html"), 404

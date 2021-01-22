@@ -1,36 +1,43 @@
 {% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
 
+
 {% block content %}
 
-<div class="container">
-    <div class="page-header">
-        <table class="table">
-            <thead>
-            <tr>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Description</th>
-                <th>Category</th>
-                <th>Quantity</th>
-                <th>Unique_Tag</th>
-            </tr>
-            </thead>
+<table class="table table-hover">
 
-            <tbody>
+    <thead>
         <tr>
-            <td>{{ product["name"] }}</td>
-            <td>{{ product["price"] }}</td>
-            <td>{{ product["description"] }}</td>
-            <td>{{ product["category"] }}</td>
-            <td>{{ product["quantity"] }}</td>
-            <td>{{ product["unique_tag"] }}</td>
-            <td class="text-right"><a href="" class="btn btn-info btn-sm" role="button">Re-Activate</a></td>
-        </tr>
-        </tr>
-        </tbody>
-        </table>
-    </div>
-</div>
-{% endblock %}
+            <th>Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Description</th>
+                <th scope="col">Category</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Unique_Tag</th>
+            </tr>
+        </thead>
 
+        <tbody>
+            {% for product in products %}
+            <tr>
+                <td>{{ prouct["id"] }}</td>
+                <td>{{ prouct["name"] }}</td>
+                <td>{{ prouct["price"] }}</td>
+                <td>{{ prouct["description"] }}</td>
+                <td>{{ prouct["category"] }}</td>
+                <td>{{ prouct["quantity"] }}</td>
+                <td>{{ prouct["unique_tag"] }}</td>
+                <td class="text-right" <a class="btn btn-info btn-sm" href="" role="button">Re-Activate</a></td>
+
+            </tr>
+        </tbody>
+    </thead>
+  </table>
+
+  {% endfor %}
+
+
+
+
+
+{% endblock %}
