@@ -33,6 +33,7 @@
                 <td>{{ product["unique_tag"] }}</td>
                  <td class="text-right"><a class="btn btn-success btn-sm" href={{ url_for("update_product", pid=product["id"]) }} role="button">Update</a></td>
                 <td class="text-right"><a class="btn btn-danger btn-sm" href={{ url_for("delete_product", pid=product["id"]) }} role="button">Delete</a></td>
+                <td class="text-right"><a class="btn btn-info btn-sm" href={{ url_for("reviews", pid=product["id"]) }} role="button">Write a Review</a></td>
                
             </tr> 
             {% elif product["quantity"] < 500 %}
@@ -46,6 +47,7 @@
                 <td>{{ product["unique_tag"] }}</td>
                 <td class="text-right"><a class="btn btn-success btn-sm" href={{ url_for("update_product", pid=product["id"]) }} role="button">Update</a></td>
                 <td class="text-right"><a class="btn btn-danger btn-sm" href={{ url_for("delete_product", pid=product["id"]) }} role="button">Delete</a></td>
+                <td class="text-right"><a class="btn btn-info btn-sm" href={{ url_for("reviews", pid=product["id"]) }} role="button">Write a Review</a></td>
                 
             </tr> 
             {% elif product["quantity"] > 500 %}
@@ -59,6 +61,8 @@
                 <td>{{ product["unique_tag"] }}</td>
                 <td class="text-right"><a class="btn btn-success btn-sm" href={{ url_for("update_product", pid=product["id"]) }} role="button">Update</a></td>
                 <td class="text-right"><a class="btn btn-danger btn-sm" href={{ url_for("delete_product", pid=product["id"]) }} role="button">Delete</a></td>
+                <td class="text-right"><a class="btn btn-info btn-sm" href={{ url_for("reviews", pid=product["id"]) }} role="button">Write a Review</a></td>
+
                 
             </tr> 
 

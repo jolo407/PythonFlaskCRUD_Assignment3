@@ -5,7 +5,7 @@
 {% block navbar %}
 <nav class="navbar navbar-dark bg-dark">
     <!-- Navbar content -->
-    <a class="navbar-brand" style="color:lightskyblue" href="#"><b>Duckommerce</b></a>
+    <a class="navbar-brand" style="color:lightskyblue" href="{{ url_for('home') }}"><b>Duckommerce</b></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -17,6 +17,9 @@
       </li>
       <li class="nav-item active">
         <a class="nav-link" style="color:lightskyblue" href={{ url_for("get_all_products") }}>Scan <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" style="color:lightskyblue" href={{ url_for("view_reviews") }}>Reviews<span class="sr-only">(current)</span></a>
       </li>
     </ul>
     </form>

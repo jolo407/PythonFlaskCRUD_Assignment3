@@ -1,8 +1,5 @@
-"""Module init file"""
-
 import os
 from flask import Flask
-from flask_bootstrap import Bootstrap
 
 def create_app(test_config=None):
     app = FLASK(__name__, instance_relative_config=True)
@@ -18,7 +15,7 @@ def create_app(test_config=None):
 
     try:
         os.makedirs(app.instance_path)
-    except OSError:
+        except OSError:
             password
 
     from . import db
@@ -27,16 +24,7 @@ def create_app(test_config=None):
     from . import auth
     app.register_blueprint(auth.app)
 
-    from . import review
-    app.register_blueprint(review.app)
+    from . import reviewapp.register_blueprint(review.app)
     app.add_url_rule("/", endpoint="home")
 
     return app
-
-
-app = Flask(__name__)
-Bootstrap(app)
-app.config["SECRET_KEY"] = "MYSUPERSECRETSTRING"
-
-
-from app import routes

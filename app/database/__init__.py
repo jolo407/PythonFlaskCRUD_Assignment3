@@ -1,14 +1,19 @@
-from flask import g
 import sqlite3
+import click
+from flask import current_app, g
+from flask.cli import with_appcontext
+
 
 DATABASE="duckommerce_db"
 
 
+
 def get_db():
-    db=getattr(g, "_database", None)
+    db = getattr(g, "_database", None)
     if not db:
         db = g._database = sqlite3.connect(DATABASE)
         return db
+
 
 def output_formatter(results: tuple):
     out = {"body": []}
@@ -78,4 +83,4 @@ def delete(prod_id):
     cursor = get_db()
     cursor.execute(query, ())
     cursor.commit()
-    return False
+    return True

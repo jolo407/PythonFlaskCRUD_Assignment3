@@ -3,8 +3,9 @@
 
 
 {% block content %}
-
+<div class="container">
 <table class="table table-hover">
+    <div class="page-header">
 
     <thead>
         <tr>
@@ -18,23 +19,27 @@
         </thead>
 
         <tbody>
-            {% for product in products %}
+            
             <tr>
-                <td>{{ prouct["id"] }}</td>
-                <td>{{ prouct["name"] }}</td>
-                <td>{{ prouct["price"] }}</td>
-                <td>{{ prouct["description"] }}</td>
-                <td>{{ prouct["category"] }}</td>
-                <td>{{ prouct["quantity"] }}</td>
-                <td>{{ prouct["unique_tag"] }}</td>
-                <td class="text-right" <a class="btn btn-info btn-sm" href="" role="button">Re-Activate</a></td>
+                <td>{{ product["id"] }}</td>
+                <td>{{ product["name"] }}</td>
+                <td>{{ product["price"] }}</td>
+                <td>{{ product["description"] }}</td>
+                <td>{{ product["category"] }}</td>
+                <td>{{ product["quantity"] }}</td>
+                <td>{{ product["unique_tag"] }}</td>
+                <td>{{ product["active"] }}</td>
+                <td class="text-right"><a class="btn btn-info btn-sm" href="" role="button">Re-Activate</a></td>
 
             </tr>
+            
+        </div>
         </tbody>
     </thead>
   </table>
-
-  {% endfor %}
+  </div>
+            
+  
 
 
 

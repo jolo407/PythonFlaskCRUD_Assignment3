@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<div class="container">
+    <h1>{% block title %}Write a Review{% endblock %}</h1>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="page-header">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Quantity</th>
+            <th>Unique_Tag</th>
+        </tr>
+        </thead>
+
+        <tbody>
+    <tr>
+        <td>{{ product["name"] }}</td>
+        <td>{{ product["price"] }}</td>
+        <td>{{ product["description"] }}</td>
+        <td>{{ product["category"] }}</td>
+        <td>{{ product["quantity"] }}</td>
+        <td>{{ product["unique_tag"] }}</td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+
+<div class="container">
+    <form method="post">
+        <div class="form-group">
+            <h1 class="lead">Leave your review below</h1>
+            <label for="exampleFormControlTextarea1">Your Review:</label>
+            <textarea class="form-control" rows="3" name="review-text"></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+</div>
+{% endblock %}
